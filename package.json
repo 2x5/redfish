@@ -1,0 +1,23 @@
+{
+  "name": "redsauce",
+  "version": "0.0.0",
+  "description": "Generate a Redis load script from CSV data",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "redis",
+    "text",
+    "search"
+  ],
+  "author": "shizazzle@github.com",
+  "license": "MIT",
+  "dependencies": {
+    "double-metaphone": "~0.1.2",
+    "stemmer": "~0.1.3",
+    "npm": "~2.1.7",
+    "install": "~0.1.7",
+    "fast-csv": "~0.5.4"
+  }
+}
