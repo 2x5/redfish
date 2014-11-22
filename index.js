@@ -1,20 +1,18 @@
 var fs  = require("fs");
-var csv = require("fast-csv");
-var dm  = require('double-metaphone');
+var Transform = require('stream').Transform
 
-var options = {
-    delimiter : "\t", 
-    headers   : ["name", "bizname", "address", "city", "state", "zip", "county", "commno", "commexp"]
+var parser = new Transform();
+ 
+parser._transform = function(chunk, encoding, done) {
+    this.push(chunk);
+    done();
 }
+ 
+process.stdin
+       .pipe(parser)
+       .pipe(process.stdout);
 
-var ins = fs.createReadStream("/media/removable/UNTITLED/Notary/CA/sample.csv");
-var outs = fs.createWriteStream("./sample.redis");
-outs.on('finish', function () {
-  console.log('file has been written');
-});
-
-var id = 0;
-
+/*
 csv
  .fromStream(ins, options)
  .on("data", function(data){
@@ -39,6 +37,7 @@ csv
      outs.close();
      console.log("done");
  });
+*/
 
 function indexWord(id, word) {
     outs.write(id + ',' + word + '\n');
