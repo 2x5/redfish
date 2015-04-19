@@ -1,5 +1,5 @@
 {
-  "name": "redsauce",
+  "name": "redfish",
   "version": "0.0.0",
   "description": "Generate a Redis load script from CSV data",
   "main": "index.js",
